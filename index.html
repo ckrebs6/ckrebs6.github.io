@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charles Krebs — Mechanical Engineering Portfolio</title>
+<meta name="description" content="Charles Krebs — mechanical engineering student at Tufts University with a minor in music engineering. Projects in design, fabrication, electronics, and acoustics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f3ee; --surface:#fffdf9; --ink:#15171c; --ink-2:#4a4e57; --ink-3:#7b7f88;
+  --line:#e2ded5; --accent:#b4532a; --accent-soft:#f3e3d9; --dark:#16181d;
+  --serif:'Newsreader',Georgia,serif; --sans:'Inter',system-ui,-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:20;background:rgba(245,243,238,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{font-family:var(--serif);font-size:21px;font-weight:500;letter-spacing:-.01em}
+.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:28px}
+.navlinks button{font-size:14px;color:var(--ink-2);transition:color .15s}
+.navlinks button:hover{color:var(--ink)}
+@media(max-width:640px){.navlinks{gap:16px}.navlinks button{font-size:13px}.navlinks .hide-sm{display:none}}
+
+/* hero */
+.hero{padding-top:88px;padding-bottom:64px;position:relative;overflow:hidden}
+.hero .eyebrow{color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.hero .eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,7vw,84px);line-height:1.02;letter-spacing:-.025em;max-width:13ch}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-grid{display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:200px;order:-1}}
+.hero h1.name{font-size:clamp(46px,6.5vw,76px);max-width:none}
+.portrait{aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#e9e3d7,#d8cfbf);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.monogram{font-family:var(--serif);font-size:88px;color:#fffdf9;letter-spacing:-.02em;opacity:.9}
+.hero p.lede+p.lede{margin-top:16px}
+.hero p.lede{margin-top:28px;font-size:19px;color:var(--ink-2);max-width:60ch;line-height:1.55}
+.hero .meta{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:14px;color:var(--ink-2);text-decoration:none}
+a.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7}
+.wave{margin-top:64px;width:100%;height:90px;display:block}
+.wave path{fill:none;stroke:var(--ink);stroke-width:1.2}
+.wave .env{stroke:var(--accent);stroke-dasharray:3 4;stroke-width:1}
+
+/* sections */
+section.block{padding:84px 0;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:40px;margin-bottom:44px;align-items:baseline}
+.sec-head .mono{color:var(--ink-3)}
+.sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4vw,42px);letter-spacing:-.02em;line-height:1.1}
+@media(max-width:760px){.sec-head{grid-template-columns:1fr;gap:10px}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:200px 1fr 300px;gap:40px}
+.about-grid .body p{font-size:18px;color:var(--ink-2);margin-bottom:18px;max-width:62ch}
+.facts{border-left:1px solid var(--line);padding-left:28px}
+.facts dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:18px}
+.facts dt:first-child{margin-top:0}
+.facts dd{font-size:15px;margin-top:3px}
+@media(max-width:960px){.about-grid{grid-template-columns:1fr}.about-grid>.spacer{display:none}.facts{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:24px}}
+
+/* project cards */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{padding:7px 14px;border-radius:999px;border:1px solid var(--line);font-size:13px;color:var(--ink-2);background:var(--surface)}
+.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+.card{grid-column:span 6;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px -18px rgba(20,20,30,.28);border-color:#d3cec3}
+.card.feature{grid-column:span 12;flex-direction:row}
+.card .thumb{aspect-ratio:16/10;background:#ebe7df;overflow:hidden;position:relative}
+.card.feature .thumb{flex:1.35;aspect-ratio:auto;min-height:380px}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover .thumb img{transform:scale(1.03)}
+.card .thumb.contain img{object-fit:contain;padding:18px;background:#fff}
+.card .info{padding:24px 26px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card.feature .info{padding:40px;justify-content:center}
+.card .kicker{color:var(--accent)}
+.card h3{font-family:var(--serif);font-weight:500;font-size:25px;line-height:1.15;letter-spacing:-.01em}
+.card.feature h3{font-size:34px}
+.card p{color:var(--ink-2);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.tag{font-family:var(--mono);font-size:11px;padding:4px 9px;border-radius:5px;background:#f0ece4;color:var(--ink-2)}
+.card .more{font-size:14px;font-weight:500;display:inline-flex;gap:6px;align-items:center;margin-top:6px}
+.card .more::after{content:"→";transition:transform .2s}
+.card:hover .more::after{transform:translateX(4px)}
+@media(max-width:860px){.card,.card.feature{grid-column:span 12;flex-direction:column}.card.feature .thumb{min-height:0;aspect-ratio:16/10}.card.feature .info{padding:26px}}
+
+/* experience */
+.xp{display:grid;grid-template-columns:200px 1fr;gap:40px}
+.xp-list{display:flex;flex-direction:column}
+.xp-item{display:grid;grid-template-columns:1fr auto;gap:6px 24px;padding:24px 0;border-bottom:1px solid var(--line)}
+.xp-item:first-child{padding-top:0}
+.xp-item h4{font-size:17px;font-weight:600}
+.xp-item .org{color:var(--ink-2);font-size:15px}
+.xp-item .when{font-family:var(--mono);font-size:12px;color:var(--ink-3);white-space:nowrap;text-align:right}
+.xp-item ul{grid-column:1/-1;margin-top:8px;padding-left:18px;color:var(--ink-2);font-size:15px}
+.xp-item li{margin-bottom:4px}
+@media(max-width:760px){.xp{grid-template-columns:1fr;gap:0}.xp>.spacer{display:none}.xp-item{grid-template-columns:1fr}.xp-item .when{text-align:left}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
+.skill h5{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:500}
+.skill p{font-size:15px;color:var(--ink-2)}
+
+/* contact */
+.contact{background:var(--dark);color:#f2efe8;border-top:0}
+.contact .sec-head .mono{color:#8c909a}
+.contact h2 em{color:#e39a74;font-style:italic}
+.contact-row{display:flex;flex-wrap:wrap;gap:14px;margin-left:240px}
+.contact .chip{background:transparent;border-color:#3a3d45;color:#e8e5de;font-size:15px;padding:12px 18px}
+.contact .chip:hover{border-color:#8c909a}
+@media(max-width:760px){.contact-row{margin-left:0}}
+footer{background:var(--dark);color:#8c909a;font-size:13px;padding:24px 0 36px;border-top:1px solid #2a2d34}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer button{color:#8c909a;text-decoration:underline;text-underline-offset:3px;font-size:13px}
+
+/* ---------- project page ---------- */
+#project{display:none}
+body.viewing-project #home{display:none}
+body.viewing-project #project{display:block}
+.p-hero{padding-top:46px;padding-bottom:36px}
+.back{font-size:14px;color:var(--ink-2);display:inline-flex;gap:8px;align-items:center;margin-bottom:34px}
+.back:hover{color:var(--ink)}
+.p-hero .kicker{color:var(--accent);margin-bottom:14px}
+.p-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.5vw,64px);line-height:1.04;letter-spacing:-.025em;max-width:20ch}
+.p-hero .summary{font-size:20px;color:var(--ink-2);max-width:62ch;margin-top:20px;line-height:1.5}
+.p-cover{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#ebe7df;max-height:600px}
+.p-cover img{width:100%;max-height:600px;object-fit:cover}
+.p-cover.contain{background:#fff}
+.p-cover.contain img{object-fit:contain;padding:24px}
+.p-layout{display:grid;grid-template-columns:270px 1fr;gap:64px;padding-top:56px;padding-bottom:96px}
+@media(max-width:900px){.p-layout{grid-template-columns:1fr;gap:36px}}
+.glance{position:sticky;top:90px;align-self:start;border-top:2px solid var(--ink);padding-top:18px}
+@media(max-width:900px){.glance{position:static}}
+.glance h6{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:14px}
+.glance dl{display:grid;gap:14px}
+.glance dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.glance dd{font-size:14.5px;margin-top:2px}
+.glance .tags{padding-top:4px}
+.glance .toc{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.glance .toc button{text-align:left;font-size:14px;color:var(--ink-2)}
+.glance .toc button:hover{color:var(--accent)}
+.glance .links{margin-top:22px;display:flex;flex-direction:column;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:9px;background:var(--ink);color:var(--bg);text-decoration:none;font-size:14px;font-weight:500}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:hover{opacity:.88}
+
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:54px}
+.metric{background:var(--surface);padding:22px}
+.metric .v{font-family:var(--serif);font-size:34px;line-height:1;letter-spacing:-.02em}
+.metric .l{font-size:13px;color:var(--ink-2);margin-top:8px}
+
+.p-section{margin-bottom:58px;scroll-margin-top:90px}
+.p-section>.mono{color:var(--accent);display:block;margin-bottom:8px}
+.p-section h2{font-family:var(--serif);font-weight:400;font-size:32px;letter-spacing:-.015em;line-height:1.15;margin-bottom:18px}
+.prose p{color:var(--ink-2);font-size:17px;margin-bottom:16px;max-width:70ch}
+.prose ul{color:var(--ink-2);font-size:17px;padding-left:20px;margin-bottom:16px;max-width:68ch}
+.prose li{margin-bottom:6px}
+.prose strong{color:var(--ink);font-weight:600}
+.prose h3{font-size:18px;font-weight:600;margin:26px 0 8px}
+.figs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:26px 0 30px}
+.figs.one{grid-template-columns:1fr}
+.figs.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:700px){.figs,.figs.three{grid-template-columns:1fr}}
+figure{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:zoom-in}
+figure img{width:100%;height:auto;background:#fff}
+figure.cover img{aspect-ratio:4/3;object-fit:cover}
+figcaption{font-size:13px;color:var(--ink-3);padding:11px 14px;border-top:1px solid var(--line);line-height:1.45}
+table.data{width:100%;border-collapse:collapse;font-size:14.5px;margin:20px 0 28px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table.data th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);background:#faf8f3}
+table.data td{padding:11px 16px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+table.data tr:last-child td{border-bottom:0}
+table.data td.neg{color:#a23b2a}
+.tablewrap{overflow-x:auto}
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin:22px 0;font-size:16px;color:var(--ink)}
+
+/* audio */
+.player{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin:24px 0}
+.player .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.player .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);width:70px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{padding:8px 14px;font-size:14px;color:var(--ink-2);border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.player .desc{font-size:14px;color:var(--ink-2);margin:4px 0 14px}
+audio{width:100%;height:40px}
+.video{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000;margin:24px 0 8px}
+.video video{width:100%;display:block;aspect-ratio:16/9}
+pre.code{background:#16181d;color:#e8e5de;font-family:var(--mono);font-size:13px;line-height:1.6;padding:18px 20px;border-radius:12px;overflow-x:auto;margin:18px 0 26px}
+pre.code .c{color:#8c909a}
+.inlink{color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-size:inherit}
+.track{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:20px 0}
+.track .t{font-weight:600;font-size:15px;min-width:180px}
+.track .t small{display:block;font-weight:400;color:var(--ink-3);font-size:13px}
+@media(max-width:600px){.track{flex-direction:column;align-items:stretch}}
+
+/* outline (draft) mode: shows empty framework slots */
+.slot{display:none}
+body.outline .slot{display:block;border:1.5px dashed #c9b9a8;border-radius:10px;padding:12px 14px;color:#9a7b62;font-size:13.5px;background:repeating-linear-gradient(-45deg,transparent 0 8px,rgba(180,83,42,.04) 8px 16px);margin-bottom:14px}
+body.outline dd.slot,body.outline .slot.inline{display:block}
+.outline-banner{display:none;position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:13px;z-index:40;box-shadow:0 10px 30px rgba(0,0,0,.25);gap:12px;align-items:center}
+body.outline .outline-banner{display:flex}
+.outline-banner button{color:#e39a74;text-decoration:underline}
+
+/* lightbox */
+#lightbox{position:fixed;inset:0;background:rgba(15,16,20,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:4vh 4vw;cursor:zoom-out;flex-direction:column;gap:14px}
+#lightbox.open{display:flex}
+#lightbox img{max-width:100%;max-height:84vh;object-fit:contain;border-radius:8px;background:#fff}
+#lightbox p{color:#c9c6bf;font-size:14px;max-width:80ch;text-align:center}
+
+.fade{animation:fade .45s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.next-proj{border-top:1px solid var(--line);padding:40px 0 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.next-proj button{text-align:left;flex:1;min-width:240px}
+.next-proj .mono{color:var(--ink-3);display:block;margin-bottom:6px}
+.next-proj .n{font-family:var(--serif);font-size:24px}
+.next-proj button:hover .n{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <button class="brand" data-go="top">Charles Krebs<span>.</span></button>
+    <div class="navlinks">
+      <button data-go="work">Work</button>
+      <button data-go="about" class="hide-sm">About</button>
+      <button data-go="experience">Experience</button>
+      <button data-go="contact">Contact</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<main id="home">
+  <header class="hero wrap" id="top">
+    <div class="hero-grid">
+    <div class="hero-text">
+    <div class="eyebrow mono">Mechanical Engineering · Music Engineering · Tufts '27</div>
+    <h1 class="name">Charles Krebs</h1>
+    <p class="lede">I'm a mechanical engineering student at Tufts University, minoring in music engineering. I grew up in northeastern Vermont, where I participated in a lot of music, whether it was jazz band or symphony orchestra, and spent most of the rest of my free time outdoors in some form or another. I always loved to try to understand the things around me and figure out how they work. These factors eventually led me to the world of acoustics, and also encouraged me to make a positive difference in the world, particularly surrounding sustainability and environmental issues.</p>
+    <p class="lede">I have a particular interest in research and design in engineering, centered heavily around acoustics. Specifically, I am excited by electro-acoustic transducers and architectural acoustics.</p>
+    <div class="meta">
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Medford, MA</span>
+      <a class="chip" href="mailto:charles.krebs@tufts.edu"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>charles.krebs@tufts.edu</a>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M4 19V8l8-4 8 4v11"/><path d="M9 19v-6h6v6"/></svg>B.S. Mechanical Engineering, May 2027</span>
+      <a class="chip" href="https://www.linkedin.com/in/charles-krebs-938680330" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a>
+      <!-- RESUME: put your resume PDF link (e.g. a Google Drive share link) in href and remove "slot inline" to show it -->
+      <a class="chip slot inline" href="#" target="_blank" rel="noopener">Resume (PDF) — add link</a>
+    </div>
+    </div>
+    <!-- PHOTO: save your photo as img/headshot.jpg, then replace the <div class="monogram">…</div> below with:
+         <img src="img/headshot.jpg" alt="Charles Krebs"> -->
+    <div class="portrait"><div class="monogram">CK</div></div>
+    </div>
+    <svg class="wave" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><path id="wavepath"/><path class="env" id="envpath"/></svg>
+  </header>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="sec-head"><span class="mono">01 — Projects</span><h2>Projects</h2></div>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="cards"></div>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="sec-head"><span class="mono">02 — About</span><h2>About Me:</h2></div>
+      <div class="about-grid">
+        <div class="spacer"></div>
+        <div class="body">
+          <p>In my free time I enjoy backpacking, climbing, playing the guitar, trombone, and piano, running, and XC skiing. I competed as an NCAA Division III cross country and track athlete, focused mainly on the mile and 800 m events.</p>
+        </div>
+        <dl class="facts">
+          <dt>Education</dt><dd>Tufts University<br>B.S. Mechanical Engineering<br>Minor in Music Engineering</dd>
+          <dt>Graduating</dt><dd>May 2027</dd>
+          <dt>Focus</dt><dd>Acoustics · Product design · Fabrication · Audio electronics</dd>
+          <dt>Recognition</dt><dd>Dean's List, five semesters</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="sec-head"><span class="mono">03 — Experience</span><h2>Where I've worked</h2></div>
+      <div class="xp"><div class="spacer"></div><div class="xp-list" id="xp"></div></div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="sec-head"><span class="mono">04 — Toolkit</span><h2>Skills &amp; tools</h2></div>
+      <div class="skills" id="skillgrid"></div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <div class="sec-head"><span class="mono">05 — Contact</span><h2>Get in touch</h2></div>
+      <div class="contact-row">
+        <a class="chip" href="mailto:charles.krebs@tufts.edu"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>charles.krebs@tufts.edu</a>
+        <a class="chip" href="tel:+18025352806"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>(802) 535-2806</a>
+        <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Medford, MA</span>
+        <a class="chip" href="https://www.linkedin.com/in/charles-krebs-938680330" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>linkedin.com/in/charles-krebs-938680330</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PROJECT VIEW ================= -->
+<main id="project"></main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Charles Krebs</span>
+  </div>
+</footer>
+
+<div id="lightbox"><img alt=""><p></p></div>
+
+<script>
+/* =====================================================================
+   PROJECT FRAMEWORK
+   Every project uses the same fields. Leave a field empty ("" or [])
+   and it is hidden on the live site.
+
+
+   id         – short name used in the page link (#banjo)
+   title, kicker, summary, cover, coverFit ("cover" | "contain")
+   category   – used by the filter chips on the home page
+   featured   – true = full-width card
+   glance     – role, team, course, timeline, tools[], skills[]
+   metrics    – [{v:"value", l:"label"}]  key numbers
+   sections   – the standard write-up, in this order:
+                overview, challenge, process, results, reflection
+                (each is HTML; add figures with fig() helpers below)
+   links      – [{label, href}]  reports, slides, videos, code
+   ===================================================================== */
+
+const fig = (src, cap, cls="") => `<figure class="${cls}" data-cap="${cap.replace(/"/g,'&quot;')}"><img loading="lazy" src="img/${src}" alt="${cap.replace(/"/g,'&quot;')}"><figcaption>${cap}</figcaption></figure>`;
+const figs = (cls, ...items) => `<div class="figs ${cls}">${items.join("")}</div>`;
+
+const PROJECTS = [
+{
+  id:"banjo",
+  title:"Banjo Construction & Head-Tension Acoustics",
+  kicker:"Acoustic Instrument Design · Spring 2026",
+  category:"Acoustics",
+  featured:true,
+  summary:"Design and construction of a five-string banjo, followed by a study of how head tension affects the fundamental frequency of the head, comparing recorded measurements with a COMSOL finite element model.",
+  cover:"banjo-hero.jpg",
+  glance:{
+    role:"Designer, builder & researcher (solo)",
+    team:"Individual project",
+    course:"ME 45 — Acoustic & Electronic Instrument Design, Tufts",
+    timeline:"Spring 2026",
+    tools:["COMSOL Multiphysics","MATLAB","Bandsaw","Router","Spindle & belt sander"],
+    skills:["Fine woodworking","Finite element analysis","Signal processing","Experimental design"]
+  },
+  metrics:[
+    {v:"6", l:"Head-tension levels tested, 5 trials each"},
+    {v:"+46 Hz", l:"Rise in fundamental (136 → 182 Hz) across the sweep"},
+    {v:"< 8 Hz", l:"Standard deviation at every tension level"},
+    {v:"f ∝ √T", l:"Confirmed by both experiment and simulation"}
+  ],
+  sections:{
+    overview:`<p>The banjo is one of the few stringed instruments where players change its core acoustic properties before they play, by tightening a Mylar membrane across the rim. Theory predicts that every resonant frequency of that membrane should scale with the square root of tension, but the relationship had not been measured on an assembled instrument across a controlled tension range.</p>
+      <p>This project had two halves: <strong>building a working banjo from scratch</strong>, and <strong>using it as a test bed</strong> to check that scaling law with recordings at six tension levels and a 2D axisymmetric COMSOL model.</p>
+      <div class="track"><div class="t">“The Chase”<small>Original composition, played on the finished banjo</small></div><audio controls preload="none" src="audio/TheChase.mp3"></audio></div>`,
+    challenge:`<p>Two problems drove the work. First, the craft: turning boards into a playable neck, a round laminated rim, and a hardware system strong enough to tension a drumhead. Second, the measurement: I had no tool to measure head tension directly, so I needed a method that would still test the <em>rate</em> of frequency change even if the absolute tension estimate was off.</p>`,
+    process:`<h3>Fabrication</h3>
+      <p>I glued up 1×4 boards and carved the neck with the bandsaw, router, and chisels. The rim was built from glued trapezoids stacked into octagons, cut round on the bandsaw, and finished on the belt and spindle sanders. Tension hooks mount through L-brackets bolted into the rim, countersunk where the bolts ran short. The headstock was shaped, drilled, and fitted with tuning pegs.</p>
+      ${figs("", fig("banjo-fig1.jpg","Fig 1. Preliminary sketch of the assembly and neck design"), fig("banjo-fig2.jpg","Fig 2. Rim under construction from stacked, glued segments"))}
+      ${figs("", fig("banjo-fig3.jpg","Fig 3. Tension-hook mounting mechanism"), fig("banjo-fig4.jpg","Fig 4. Finished headstock with tuning pegs"))}
+      <h3>How a banjo makes sound</h3>
+      <p>Unlike a guitar top, whose modes are spaced evenly, a membrane's modal density grows with frequency. Its modes pack closer together the higher you go. That makes the banjo head far more responsive at the bridge (20–40 dB higher admittance than a guitar) and gives the instrument its bright, sharp attack. Air on both sides of the head also adds effective mass, lowering every resonance from its in-vacuum value.</p>
+      ${figs("one", fig("banjo-fig6.jpg","Fig 6. Banjo membrane modes, from Woodhouse, Politzer & Mansour (2021)"))}
+      <h3>Experiment &amp; simulation</h3>
+      <p>I tightened the head uniformly in half-turn increments across six levels, waiting three minutes at each to let it settle, and recorded edge taps 30 cm from the head. A MATLAB script windowed and FFT'd each recording, found the fundamental, and back-calculated tension from the circular membrane equation, starting from an estimated 850 N/m at the initial C#3.</p>
+      <p>In parallel, I built a 2D axisymmetric COMSOL model of the Mylar head (6" radius, 0.3 mm thick, 1200 kg/m³, 3 GPa) and ran a parametric pre-stress sweep to extract the first mode at each tension.</p>
+      ${figs("", fig("banjo-fig8.jpg","Fig 8. Cross-section of the simulated fundamental mode"), fig("banjo-fig9.jpg","Fig 9. 3D view of the simulated fundamental mode"))}`,
+    results:`<p>Both methods independently produced a <strong>linear relationship between fundamental frequency and √T</strong>, confirming the hypothesis.</p>
+      ${figs("", fig("banjo-fig7.jpg","Fig 7. Measured fundamental vs. √T across all six tension levels (MATLAB)"), fig("banjo-fig10.jpg","Fig 10. Simulated eigenfrequencies vs. √T (COMSOL)"))}
+      <div class="tablewrap"><table class="data"><thead><tr><th>Tension level</th><th>Mean frequency (Hz)</th><th>Std. deviation (Hz)</th></tr></thead><tbody>
+      <tr><td>1</td><td>136.27</td><td>6.33</td></tr><tr><td>2</td><td>142.77</td><td>6.05</td></tr><tr><td>3</td><td>153.13</td><td>7.79</td></tr>
+      <tr><td>4</td><td>156.56</td><td>1.03</td></tr><tr><td>5</td><td>171.16</td><td>7.04</td></tr><tr><td>6</td><td>182.06</td><td>1.40</td></tr></tbody></table></div>
+      <div class="callout">The two slopes differ: the real head behaves as if it has a higher effective surface density than the simulated one. This is consistent with air loading, which the COMSOL model does not include.</div>
+      <p><strong>Limitations:</strong> tension was estimated rather than measured; half-turn tightening assumes even load around the rim; and tap force and location were controlled by hand. Averaging multiple taps per level and using a tension gauge would tighten the results.</p>`,
+    reflection:`<ul>
+      <li><strong>What I learned:</strong> A deep dive into banjo-specific acoustics literature, and a big step forward in fine woodworking beyond measuring, cutting, and screwing boards together.</li>
+      <li><strong>Proudest of:</strong> A fully functional banjo whose quality I'm genuinely proud of.</li>
+      <li><strong>Hardest part:</strong> I underestimated how long the woodworking would take. I loved the process, but it was ambitious for one semester.</li>
+      <li><strong>Most spectacular failure:</strong> I originally planned to simulate the head with the bridge and strings attached, but couldn't get the wood–membrane coupling to work in COMSOL, so I narrowed the study to the bare head.</li></ul>`
+  },
+  links:[],
+  references:`J. Woodhouse, D. Politzer, and H. Mansour, “Acoustics of the banjo: theoretical and numerical modelling,” <em>Acta Acustica</em>, vol. 5, p. 16, 2021. doi:10.1051/aacus/2021008`
+},
+{
+  id:"room-acoustics",
+  title:"Acoustical Analysis of Alumnae Lounge",
+  kicker:"Architectural Acoustics · Spring 2026",
+  category:"Acoustics",
+  summary:"Measurement, modeling, and auralization of a multipurpose campus hall, with two proposed modifications: one for speech intelligibility and one for live music.",
+  cover:"room-hero.jpg",
+  glance:{
+    role:"",
+    team:"Group project",
+    course:"",
+    timeline:"Spring 2026",
+    tools:["CATT-Acoustic","SketchUp","Audacity","UMM-6 measurement mic","Spreadsheets (Sabine model)"],
+    skills:["Impulse response measurement","Room acoustic metrics","Acoustic modeling","Auralization"]
+  },
+  metrics:[
+    {v:"27,113 ft³", l:"Room volume"},
+    {v:"~1.1 s", l:"Mid-band T20, 250 Hz–4 kHz"},
+    {v:"±10%", l:"Sabine model vs. measured RT"},
+    {v:"1.62 → 1.03 s", l:"Predicted 125 Hz RT with redesigned panels"}
+  ],
+  sections:{
+    overview:`<p>Alumnae Lounge at Tufts hosts banquets, lectures, symposiums, and amplified five-piece bands. It's a wide, shallow room (a 50 × 32.5 × 13.5 ft main space plus a 9 ft low-ceiling section) with hardwood floors, drywall, a wall of windows, and painted fabric-covered fiberglass panels on the side walls.</p>
+      <p>We characterized how it sounds today, compared the numbers with what we actually heard, built a computer model that matched the measurements, and used it to audition design changes before anyone touches the room.</p>
+      ${figs("", fig("room-photo-1.jpg","Full view of the room from the front corner","cover"), fig("room-sketch.jpg","Sketches and mock-up of the room","cover"))}`,
+    challenge:`<p>A multipurpose room has to serve two masters: speech wants clarity and short decay, music wants warmth and support. The goal was to find where Alumnae Lounge sits between those, and what targeted changes could push it toward either use.</p>
+      <p>Sizing guidelines (200–300 ft³ per seat) put the ideal audience at about 135, below the 160-person standing capacity, while the volume per musician comfortably supports 3–9 performers.</p>`,
+    process:`<h3>Measurement</h3>
+      <p>We popped acoustic balloons at the podium position and recorded impulse responses with an omnidirectional UMM-6 mic at two receiver positions (room center and front-right corner). Road traffic and a humming mic-charging station raised the noise floor, so we used T20 rather than T30 for decay times. We also did listening tests: speech (the Gettysburg Address) and guitar, with listeners moving around the room.</p>
+      ${figs("", fig("room-trial1.jpg","Source and receiver positions, trial 1"), fig("room-trial2.jpg","Source and receiver positions, trial 2"))}
+      <h3>Sabine model</h3>
+      <p>Using surface areas and published absorption coefficients (adjusted for the painted fiberglass panels), we predicted reverberation time per octave band with RT = 0.049·V/Σ(Sα). Every band landed within about 10% of measurement.</p>
+      ${figs("one", fig("room-sabine.jpg","Sabine-predicted vs. measured reverberation time"))}
+      <h3>CATT-Acoustic model</h3>
+      <p>A SketchUp model of the room went into CATT-Acoustic with a podium source (speech) and a center-stage source (music). We simulated three versions: <strong>V1</strong> as built; <strong>V2</strong> with the painted panels replaced by 3" bare fiberglass for low-frequency absorption; and <strong>V3</strong> with angled side walls that cut off the front corners, plus reflective panels to strengthen early reflections for music.</p>
+      ${figs("", fig("room-sketchup-v1.jpg","SketchUp model used in CATT-Acoustic (V1/V2)"), fig("room-sketchup-v3.jpg","Modified V3 model with angled side walls"))}`,
+    results:`<div class="tablewrap"><table class="data"><thead><tr><th>Octave band</th><th>T20 (s)</th><th>T30 (s)</th><th>C50 (dB)</th><th>C80 (dB)</th></tr></thead><tbody>
+      <tr><td>125 Hz</td><td>1.62</td><td>2.01</td><td class="neg">−3.9</td><td>0.7</td></tr>
+      <tr><td>250 Hz</td><td>1.23</td><td>1.25</td><td class="neg">−3.4</td><td>0.9</td></tr>
+      <tr><td>500 Hz</td><td>1.20</td><td>1.13</td><td>0.9</td><td>3.8</td></tr>
+      <tr><td>1 kHz</td><td>1.09</td><td>1.16</td><td class="neg">−0.5</td><td>2.0</td></tr>
+      <tr><td>2 kHz</td><td>1.20</td><td>1.18</td><td class="neg">−0.1</td><td>2.0</td></tr>
+      <tr><td>4 kHz</td><td>1.03</td><td>1.07</td><td>0.9</td><td>3.6</td></tr></tbody></table></div>
+      <p>The room is well balanced: about 1–1.25 s through the mids with a fairly flat response. Its weak spot is the low end: too little bass absorption gives a long 125 Hz decay and negative C50 (muddy speech) at 125–250 Hz. C80 stays positive in every band, which matched how clear the guitar sounded. Listening, speech felt slightly reverberant but intelligible everywhere, and loudness was even across the room thanks to its wide, shallow shape.</p>
+      ${figs("", fig("room-decay-1.jpg","Decay times and EDT, receiver 1 (center)"), fig("room-sim-results.jpg","Measured T20 vs. simulated V1, V2, and V3"))}
+      <h3>Hear the redesigns</h3>
+      <p>Anechoic recordings convolved with each simulated version of the room. Switch between versions to hear how absorption and room shape change the sound.</p>
+      <div class="player" id="auralizer"></div>
+      <div class="callout"><strong>V2 (speech)</strong> flattened the frequency response and shortened the decay, which made speech and drums clearer. <strong>V3 (music)</strong> is too reverberant for speech but gives small ensembles more support. Relatively small changes in absorption produced clearly audible differences.</div>
+      <h3>Recommendations</h3>
+      <ul><li>Replace the painted 1" panels with 3" bare fiberglass (α at 125 Hz: 0.02 → 0.53), cutting 125 Hz RT from 1.62 s to about 1.03 s.</li>
+      <li>Upgrade the single-pane, road-facing windows and quiet the charging station and HVAC to lower the noise floor.</li>
+      <li>Add switchable absorptive/reflective panels so the room can be tuned for music nights.</li></ul>`,
+    reflection:`<p>Balloon-pop measurements are accessible but limited by background noise and a small number of receiver positions. More positions, a quieter measurement window, and metrics like IACC (for spaciousness and envelopment, which we heard but couldn't quantify) would sharpen the picture. On the modeling side, longer CATT simulations would trade compute time for accuracy. Auralization was also useful for communicating results, since it lets listeners compare design options directly rather than through metrics alone.</p>`
+  },
+  links:[{label:"Sabine model spreadsheet", href:"https://docs.google.com/spreadsheets/d/1ajEts7lN1cgFOYpB2kqCgLlsx6W_jozaew3FXeZlQ0M/edit?usp=sharing"}]
+},
+{
+  id:"pin-and-pull",
+  title:"Pin & Pull: An Assistive Pin-Placing System",
+  kicker:"Engineering Design · Spring 2025",
+  category:"Product Design",
+  summary:"A user-centered assistive device to help Natalie, a YouTuber with cerebral palsy, arrange her Disney pin collection independently, developed with her input and evaluated through usability testing.",
+  cover:"pin-p9.jpg",
+  coverFit:"contain",
+  glance:{
+    role:"",
+    team:"Charlie Krebs (ME), Cece Carr (Engineering Physics), Kieu Anh Hong (Engineering Psychology)",
+    course:"ME 40 — Engineering Design, Tufts",
+    timeline:"Spring 2025",
+    tools:["Rapid prototyping","Decision matrices","Usability testing"],
+    skills:["User-centered design","Requirements definition","Prototyping","Think-aloud testing"]
+  },
+  metrics:[
+    {v:"8", l:"Prioritized user needs translated into requirements"},
+    {v:"2-part", l:"System: pick-up fork + orienting tray"},
+    {v:"4th try", l:"Natalie completed the placement mostly on her own"}
+  ],
+  sections:{
+    overview:`<p>Natalie is a 38-year-old YouTuber from Milwaukee with cerebral palsy who loves collecting Disney pins. Rearranging pins on her board independently was hard and could mean pricked fingers. Our brief was a safe, enjoyable, unobtrusive way for her to do it herself.</p>
+      ${figs("one", fig("pin-p3.jpg","Problem statement"))}`,
+    challenge:`<p>We narrowed the needs to what mattered most to Natalie: <strong>safety</strong>, <strong>independence</strong>, preventing pokes, seeing the pin face during pick-up, rotating pins to orient them, working with every pin shape, staying non-invasive and stowable, and needing no instructions after the first use. Unpacking was left out on purpose. It's something Natalie enjoys doing with her mom.</p>`,
+    process:`<p>We moved from ideation and market research through several rounds of prototyping, using a decision matrix to combine the strongest features and drop the ones that didn't work.</p>
+      ${figs("", fig("pin-p7.jpg","Ideation board"), fig("pin-p8.jpg","Prototyping: wall height, guiding track, orientation, and push-down mechanism"))}
+      <p>The final system has two parts. A <strong>fork</strong> with a soft foam grip and curved prongs slides under a pin's face to lift it off the board. A <strong>tray</strong> with grippy feet, guiding walls, and a center track steers the pin into an <strong>orienting dock</strong>, where it can be spun to the right angle and pushed into the board.</p>
+      ${figs("one", fig("pin-p9.jpg","Final product and feature callouts"))}`,
+    results:`<p>We ran a structured usability test with Natalie and her family using a think-aloud protocol.</p>
+      <ul><li><strong>Fork:</strong> worked well. Natalie liked the colors and the soft, comfortable handle.</li>
+      <li><strong>Tray wall:</strong> she lifted the tray onto the board without help.</li>
+      <li><strong>Pushing pins in:</strong> the first attempt needed a lot of guidance. By the fourth, Natalie did most of the motion herself.</li>
+      <li><strong>Tray track &amp; dock:</strong> the main pain points. Rough transitions and a slim dock let pins slip and added resistance.</li></ul>
+      ${figs("one", fig("pin-p11.jpg","Usability testing results"))}`,
+    reflection:`<p>Next iterations would smooth the tray's transitions, make the orienting dock more stable, rethink slippery materials and stiff foam, and make the tray as inviting as the fork. As a team, we learned to split work by strengths and to design within real physical limitations. We'd test with unfamiliar users sooner, explore more designs, and get Natalie's feedback earlier and more often.</p>`
+  },
+  links:[]
+},
+{
+  id:"multi-tool",
+  title:"Product Decomposition: Oscillating Multi-Tool",
+  kicker:"Engineering Design I · Spring 2025",
+  category:"Product Design",
+  summary:"Teardown and documentation of a Hammerhead 2.2 A oscillating multi-tool, covering first use, task analysis, and a full SolidWorks reconstruction of its major internal components.",
+  cover:"dec-cad.jpg",
+  coverFit:"contain",
+  glance:{
+    role:"",
+    team:"Charlie Krebs, Calvin Cummings, Tory Hur",
+    course:"ME 40 — Engineering Design I, Tufts",
+    timeline:"Jan 29 – Feb 23, 2025",
+    tools:["SolidWorks","Exploded-view animation","Calipers & measurement"],
+    skills:["Reverse engineering","Task analysis","System modeling","DFMA","CAD assembly"]
+  },
+  metrics:[
+    {v:"15", l:"Part types documented, with materials and manufacturing processes"},
+    {v:"8", l:"Steps in the documented disassembly procedure"},
+    {v:"5", l:"Major subassemblies rebuilt in CAD"},
+    {v:"4 wks", l:"From first use to final assembly and video"}
+  ],
+  sections:{
+    overview:`<p>The Hammerhead 2.2 A Oscillating Multi-Tool cuts, sands, scrapes, and grinds in tight spaces. Instead of rotating, its blade oscillates through a small angular arc. Our three-person team set out to understand the tool from two angles: how a person experiences it, and how it's built inside.</p>
+      <p>The project ran from first-use documentation and measurement, through a full teardown, to a complete CAD reconstruction, an exploded-view animation, and a summary video.</p>
+      <div class="video"><video controls preload="none" poster="img/mt-video-poster.jpg" src="video/multitool-summary.mp4"></video></div>
+      <p style="font-size:14px;color:var(--ink-3)">Project summary video (about 4 minutes)</p>`,
+    challenge:`<p>We had to document the product the way a designer needs to see it: who uses it (a residential contractor, or a homeowner on a weekend project), where, and how obvious it is out of the box. Then we had to reverse-engineer it well enough to model every major part from hand measurements, including complex curved shells, a laminated stator, and a densely packed circuit board.</p>`,
+    process:`<h3>First use &amp; user-centered design</h3>
+      <p>We unboxed and used the tool in the woodshop to saw a piece of wood, documenting packaging, setup (about 5 minutes), the task itself (5–10 minutes), and cleanup. First use felt intuitive. The bright blue power switch and speed dial and the clearly marked accessory mount do most of the teaching. That said, the oscillating motion is less familiar than a drill's to someone new to power tools. A combined task analysis broke the cut into its individual steps.</p>
+      ${figs("one", fig("mt-measure.jpg","Measuring the tool body, grip, and accessories before teardown"))}
+      <h3>Teardown &amp; decomposition</h3>
+      <p>We took the tool apart in eight documented steps: remove the nine case screws, split the shell, then pull the follower assembly, the motor (rotor, stator, brushes), the wire retainer, the circuit board, and the switch. Each part went into a decomposition table with its quantity, material, and likely manufacturing process.</p>
+      ${figs("one", fig("mt-teardown.jpg","Every component laid out and labeled after teardown"))}
+      <div class="tablewrap"><table class="data"><thead><tr><th>Part</th><th>Qty</th><th>Material</th><th>Process</th></tr></thead><tbody>
+      <tr><td>Left &amp; right case</td><td>2</td><td>ABS / polycarbonate</td><td>Injection molding</td></tr>
+      <tr><td>Follower assembly</td><td>1</td><td>Steel &amp; ABS</td><td>CNC machining</td></tr>
+      <tr><td>Universal rotor</td><td>1</td><td>Cast iron</td><td>Casting</td></tr>
+      <tr><td>Universal stator</td><td>1</td><td>Silicon steel</td><td>Injection molding</td></tr>
+      <tr><td>Sleeve bearing</td><td>1</td><td>Bronze / brass</td><td>Forging</td></tr>
+      <tr><td>Brushes</td><td>2</td><td>Carbon in ABS/PC housing</td><td>Injection molding</td></tr>
+      <tr><td>Circuit board &amp; speed dial</td><td>1</td><td>Laminate substrate, ABS/PC dial</td><td>Lamination, soldering, molding</td></tr>
+      <tr><td>SPST switch &amp; outer switch</td><td>2</td><td>ABS / polycarbonate</td><td>Injection molding</td></tr>
+      <tr><td>Screws</td><td>11</td><td>Steel</td><td>Thread rolling</td></tr></tbody></table></div>
+      <h3>CAD reconstruction</h3>
+      <p>We split the modeling by subassembly (casing, rotor, follower, stator, and circuit board) and brought them together into one assembly. Each had its own hard part: thickening and splitting the curved outer shell, lofting and patterning the rotor and its fan, an angled loft and threaded hole on the follower (solved with Hole Wizard and McMaster-Carr reference parts), intricate laminations on the stator, and fine details on a board that was hard to measure.</p>
+      ${figs("", fig("mt-casing.jpg","CAD process: casing (outer shell, split lines, inner geometry)"), fig("dec-exploded.jpg","Exploded view of the complete CAD assembly"))}
+      ${figs("one", fig("dec-system.jpg","System model: user and electrical inputs through to cutting power, noise, and vibration"))}`,
+    results:`<p>The finished model reproduces the casing, rotor, stator, brushes, follower assembly, switches, and circuit board in one working assembly, along with an exploded-view animation.</p>
+      <div class="callout">How it works: the on/off switch sends current to a universal motor. The rotor's spin drives a follower assembly that converts it into rapid back-and-forth oscillation at the tool head, while the speed dial modulates the motor through the circuit board. Energy the tool doesn't use for cutting leaves as noise and vibration.</div>
+      ${figs("one", fig("dec-cad.jpg","Section view of the complete CAD assembly"))}`,
+    reflection:`<ul>
+      <li><strong>Main challenges:</strong> complex CAD geometry, measurement accuracy, and balancing workload when some parts were far harder to model than others.</li>
+      <li><strong>What we'd do differently:</strong> CAD in small daily sessions instead of long pushes, and build small test assemblies along the way to catch fit errors sooner.</li>
+      <li><strong>Takeaway:</strong> hands-on experience in product analysis and CAD, and a much clearer sense of how products are designed for both function and ease of assembly.</li></ul>`
+  },
+  links:[]
+},
+{
+  id:"design-eval",
+  title:"Reciprocating Saw Design Evaluation",
+  kicker:"Engineering Design II · Fall 2025",
+  category:"Product Design",
+  summary:"Teardown and machine-element analysis of a low-cost reciprocating saw: the yoke driving pin, spiral bevel gear set, and support bearings, evaluated with hand calculations, SolidWorks motion analysis, and FEA.",
+  cover:"rs-fea.jpg",
+  coverFit:"contain",
+  glance:{
+    role:"",
+    team:"Charles Krebs, David Litvak, Ryder Want",
+    course:"ME 41 — Engineering Design II, Tufts",
+    timeline:"Fall 2025",
+    tools:["SolidWorks Motion","SolidWorks Simulation (FEA)","MATLAB","Shigley's / AGMA methods"],
+    skills:["Stress & fatigue analysis","Gear design","Bearing life","Free-body analysis","FEA validation"]
+  },
+  metrics:[
+    {v:"7.2", l:"Factor of safety on the yoke driving pin (yield)"},
+    {v:"17%", l:"Agreement between FEA (40.8 MPa) and hand calc (48.9 MPa)"},
+    {v:"~11,100 h", l:"Gear-train life: the system's limiting element"},
+    {v:"183,000+ h", l:"Rated L10 life of the most-loaded bearing"}
+  ],
+  sections:{
+    overview:`<p>The Yunirvana reciprocating saw turns a motor's high-speed rotation into the straight back-and-forth stroke of a blade, through a spiral bevel gear set and a scotch-yoke mechanism. We disassembled it, measured and documented its components, mapped the load path from motor to blade, and asked whether its design choices hold up for the job it's built for.</p>
+      ${figs("", fig("rs-saw.jpg","The Yunirvana reciprocating saw"), fig("rs-pin.jpg","The yoke driving pin, mounted on the bevel gear"))}`,
+    challenge:`<p>All three analyses depend on the force the material exerts on the blade during cutting. Our first estimate came from Merchant's classic chip-formation model, and it gave roughly 1,000 N. That was far too high, because a saw blade makes fine particulates, not the large chips the model assumes. After talking with instructor Brandon Stafford, the team measured cutting forces experimentally (a few tens of newtons) and conservatively set <strong>F<sub>cut</sub> = 50 N</strong> for the rest of the analysis.</p>`,
+    process:`<h3>1 · Yoke driving pin</h3>
+      <p>Modeling the AISI 1020 steel pin as a cantilever gives constant 50 N shear and a bending moment that rises to 0.6 N·m at its base. That puts the peak bending stress at <strong>48.9 MPa</strong> and the factor of safety against yield at <strong>7.16</strong>. Because the blade only loads on the cutting stroke, we treated the load as cyclic and applied the stress-life method with Marin factors (S<sub>e</sub> = 179 MPa). The predicted life is about 1.7 × 10<sup>11</sup> cycles, well into infinite-life territory.</p>
+      ${figs("one", fig("rs-shear-moment.jpg","Internal shear force and bending moment along the pin"))}
+      <p>To check the hand calculations, we modeled the yoke mechanism in SolidWorks, ran a motion analysis with 50 N on the cutting stroke only, and froze the peak instant for FEA. The simulated peak stress of 40.8 MPa came within 17% of the analytical result.</p>
+      ${figs("", fig("rs-assembly.jpg","SolidWorks assembly of the scotch-yoke mechanism"), fig("rs-contact-force.jpg","Pin–yoke contact force over one stroke: 50 N while cutting, near zero on the return"))}
+      ${figs("one", fig("rs-fea.jpg","FEA of the driving pin at peak cutting load (von Mises stress)"))}
+      <h3>2 · Spiral bevel gear set</h3>
+      <p>The 5:45 tooth spiral bevel pair (9:1 ratio, 1.8 mm module, 35° spiral angle) turns the motor's motion 90°. Spiral teeth engage gradually, so they spread load over more teeth and run quieter and smoother than straight bevels, at a higher manufacturing cost. Using AGMA methods, we resolved tangential, radial (18.1 N), and axial (2.0 N) forces, then checked root bending stress (8.6 MPa) and Hertzian contact stress (394 MPa) against allowables.</p>
+      ${figs("one", fig("rs-gear.jpg","CAD model of the spiral bevel gear pair"))}
+      <h3>3 · Bearings</h3>
+      <p>Of the saw's four bearings, the two 608-RS deep-groove bearings under the yoke's rotating disk carry nearly all the cutting load. Moment balance gave a gear force of 20.7 N. Equilibrium in two planes at mid-stroke (the worst case) gave resultant radial loads of <strong>110.7 N</strong> and <strong>57.9 N</strong>, which we checked against NTN catalog ratings (C<sub>10</sub> = 3.55 kN).</p>
+      ${figs("three", fig("rs-fbd-yoke.jpg","Blade and yoke free-body diagram"), fig("rs-fbd-xz.jpg","Shaft free-body diagram, xz-plane"), fig("rs-fbd-zy.jpg","Shaft free-body diagram, zy-plane"))}`,
+    results:`<div class="tablewrap"><table class="data"><thead><tr><th>Component</th><th>Governing failure mode</th><th>Predicted life</th></tr></thead><tbody>
+      <tr><td>Yoke driving pin</td><td>Bending fatigue</td><td>1.7 × 10<sup>11</sup> cycles (~943,000 h)</td></tr>
+      <tr><td>Spiral bevel gears</td><td>Contact fatigue (pitting)</td><td>~2 × 10<sup>9</sup> cycles (~11,100 h)</td></tr>
+      <tr><td>608-RS bearing 1</td><td>Rolling-contact fatigue</td><td>3.3 × 10<sup>10</sup> rev (183,000+ h)</td></tr>
+      <tr><td>608-RS bearing 2</td><td>Rolling-contact fatigue</td><td>2.3 × 10<sup>11</sup> rev</td></tr></tbody></table></div>
+      <div class="callout">The gear train is the limiting component, with contact fatigue (pitting) expected before bending failure. However, every component analyzed exceeds Shigley's 10<sup>6</sup>-cycle threshold for infinite life. The analysis indicates the saw is mechanically robust for a $40 tool.</div>
+      <p>The main caveat is that these are baseline, steady-load estimates. Shock loads from starting new cuts, harder materials, or ramming the blade into an object would shorten real-world life. For the bearings, lost lubrication or seal corrosion is a more likely failure than fatigue.</p>`,
+    reflection:""
+  },
+  links:[],
+  references:`R. G. Budynas and J. K. Nisbett, <em>Shigley's Mechanical Engineering Design</em>, 11th ed., McGraw-Hill, 2020 · M. C. Shaw, <em>Metal Cutting Principles</em>, 2nd ed., Oxford University Press, 2005 · M. E. Merchant, “Mechanics of the Metal Cutting Process,” <em>J. Applied Physics</em> 16(5), 1945`
+},
+{
+  id:"robot",
+  title:"Remote-Controlled Lifting & Weighing Robot",
+  kicker:"Electronics & Controls · Final Project",
+  category:"Electronics & Robotics",
+  summary:"A browser-controlled mobile robot that lifts a crate with a belt-driven arm and classifies its weight using a load cell, an op-amp amplifier, and a microcontroller.",
+  cover:"robot-hero.jpg",
+  glance:{
+    role:"",
+    team:"Charles Krebs, Ryder Want",
+    course:"ME 30 — Electronics & Controls, Tufts",
+    timeline:"",
+    tools:["Raspberry Pi","KB2040 (CircuitPython)","Python / Flask","Load cell & op-amp","Custom H-bridge PCB"],
+    skills:["Mechatronics","Analog signal conditioning","Embedded programming","Web-based control","Mechanical fabrication"]
+  },
+  metrics:[
+    {v:"3", l:"DC motors: two drive wheels plus a belt-driven lift arm"},
+    {v:"2", l:"Controllers working together: a Raspberry Pi and a KB2040"},
+    {v:"4", l:"Weight classes detected: 0, 400, 700, and 1,000 g"},
+    {v:"Wi-Fi", l:"Driven from any browser on the network"}
+  ],
+  sections:{
+    overview:`<p>A remotely operated robot that lifts and weighs a load. From a laptop browser, the operator drives the robot to a crate, engages the crate's handle with the hooked arm, lifts it, and requests a weight reading, which is reported as one of four weight classes.</p>
+      <div class="video"><video controls preload="none" poster="img/robot-video-poster.jpg" src="video/robot-demo.mp4"></video></div>
+      <p style="font-size:14px;color:var(--ink-3)">Demo: build walkthrough, then driving, lifting, and weighing a crate from the web interface</p>`,
+    challenge:`<p>The robot integrates three subsystems: a steerable drivetrain, a lift capable of raising a loaded crate, and a weighing circuit that amplifies a load cell's millivolt-level signal for a microcontroller's analog input, all under remote control.</p>`,
+    process:`<h3>Mechanical build</h3>
+      <p>The chassis is a plywood deck on wooden legs with ball casters, driven by two geared DC motors on 3D-printed mounts. The lift arm is an aluminum bar on a pair of pulleys and pillow-block supports, turned by a third motor through a timing belt. The arm mounts through a bar-style load cell, so anything the hook lifts is weighed directly.</p>
+      ${figs("one", fig("robot-hero.jpg","The finished robot: drive wheels at rear, belt-driven lift arm and hook at front"))}
+      <h3>Electronics</h3>
+      <p>A <strong>Raspberry Pi</strong> is the brain. It drives the two wheel motors through motor-driver boards and the lift motor through our own H-bridge board, designed earlier in the course (see the <button class="inlink" data-p="pcbs">PCB design project</button>). The load cell feeds an <strong>op-amp amplifier</strong> (1 kΩ input, 500 kΩ feedback, for a gain of about 500), and a 3.3 V Zener diode clamps the output to protect a <strong>KB2040</strong> microcontroller's analog input.</p>
+      ${figs("one", fig("robot-wiring.jpg","Wiring diagram: Raspberry Pi, motor drivers, H-bridge, load-cell amplifier, and KB2040"))}
+      <h3>Software</h3>
+      <p>The KB2040 runs CircuitPython. It reads the amplified load-cell voltage, sorts it into a weight class with calibrated thresholds, and signals the class on three digital lines (lighting indicator LEDs at the same time). The Pi runs a <strong>Flask web server</strong> with a control pad (forward, back, left, right, lift, lower, and weigh) plus an adjustable move duration. Each command runs the motors for a set duration and then stops them, so the motors do not keep running if communication is lost.</p>
+<pre class="code"><span class="c"># KB2040: classify the load-cell voltage into a weight class</span>
+def get_weight(voltage):
+    if voltage &lt; 0.15:  return 0
+    elif voltage &lt; 0.65: return 400
+    elif voltage &lt; 1.1:  return 700
+    else:                return 1000</pre>`,
+    results:`<p>The finished robot drives and turns from the browser, hooks and lifts a wooden crate off the table, and reports the crate's weight class back to the web page. Dividing the tasks between the two controllers kept each program simple: the KB2040 handles analog sensing, and the Pi handles networking and motor control.</p>`,
+    reflection:""
+  },
+  links:[]
+},
+{
+  id:"pcbs",
+  title:"PCB Design: Breadboard Power Supply & H-Bridge Motor Driver",
+  kicker:"Electronics & Controls · KiCad",
+  category:"Electronics & Robotics",
+  summary:"Two printed circuit boards designed in KiCad and fabricated by OSH Park: a plug-in breadboard power supply with 12, 5, and 3.3 V outputs, and an H-bridge motor driver controlled by microcontroller logic signals.",
+  cover:"pcb-hb-layout.jpg",
+  coverFit:"contain",
+  glance:{
+    role:"Designer (individual project)",
+    team:"Individual project",
+    course:"ME 30 — Electronics & Controls, Tufts",
+    timeline:"",
+    tools:["KiCad","OSH Park","Breadboard prototyping","Multimeter"],
+    skills:["Schematic capture","PCB layout","Voltage regulation","Power MOSFET switching"]
+  },
+  metrics:[
+    {v:"2", l:"Boards taken from breadboard prototype to fabricated PCB"},
+    {v:"12 / 5 / 3.3 V", l:"Outputs from the power supply, all at the same time"},
+    {v:"5 A", l:"Continuous motor-current target for the H-bridge traces at 12 V"}
+  ],
+  sections:{
+    overview:`<p>These were my first two printed circuit boards. For each one, I built and tested the circuit on a breadboard first, then captured the schematic, laid out the board in KiCad, and sent it to OSH Park for fabrication.</p>`,
+    challenge:`<p><strong>Power supply:</strong> a board that plugs straight into a breadboard's power rails, takes 12 V from a standard 2.1 × 5.5 mm wall adapter, and provides 12 V, 5 V, and 3.3 V at the same time. The header pins had to line up with the breadboard's holes (about 1.9" apart), and each rail could only touch its matching pins.</p>
+      <p><strong>H-bridge:</strong> a motor controller that runs a DC motor in both directions from KB2040 logic signals, has connectors for the motor, power, and control lines, and has motor-current traces sized to carry 12 V at 5 A continuously without overheating.</p>`,
+    process:`<h3>Project 1: breadboard power supply</h3>
+      <p>The 12 V barrel-jack input passes straight through to one pair of headers and also feeds two linear regulators: an <strong>L7805</strong> for 5 V and an <strong>LD1117V</strong> for 3.3 V, each with a bypass capacitor. A screw terminal provides a second way to bring in power. One catch I had to watch: the two regulators' input, output, and ground pins are in different orders, so each footprint came straight from its datasheet.</p>
+      ${figs("", fig("pcb-psu-schematic.jpg","Power supply schematic: barrel jack, L7805 and LD1117V regulators, rail headers"), fig("pcb-psu-layout.jpg","Power supply PCB layout"))}
+      <h3>Project 3: H-bridge motor driver</h3>
+      <p>Each side of the bridge pairs a <strong>FQP27P06</strong> P-channel MOSFET on the high side with an <strong>IRLB8721</strong> logic-level N-channel MOSFET on the low side. <strong>PN2222A</strong> transistors let the 3.3 V microcontroller signals switch the 12 V P-channel gates, and pull-up and pull-down resistors keep every gate in a known state. Motor current runs on wide traces between the barrel jack, the MOSFETs, and the motor screw terminal, and a 3-pin header brings in the control signals.</p>
+      ${figs("", fig("pcb-hb-schematic.jpg","H-bridge schematic: complementary MOSFET pairs with BJT gate drivers"), fig("pcb-hb-layout.jpg","H-bridge PCB layout"))}`,
+    results:`<p>Both designs were proven on the breadboard before layout. The H-bridge prototype spun a motor in both directions under KB2040 control. Then both boards went out for fabrication. Along the way I learned the full board workflow: choosing parts from datasheets, matching footprints to real pins, sizing traces for current, and making a compact layout that keeps fabrication cost low.</p>`,
+    reflection:""
+  },
+  links:[]
+},
+{
+  id:"drill-noise",
+  title:"Cordless Drill Noise Mitigation",
+  kicker:"Acoustics · ME 126",
+  category:"Acoustics",
+  summary:"Design and testing of foam, HDPE, and combined barriers for reducing cordless drill noise. The combined barrier reduced sound levels by about 9 dBA at 1 m.",
+  cover:"drill-psd.jpg",
+  coverFit:"contain",
+  glance:{
+    role:"",
+    team:"Charlie Krebs, Ben Ledru, Cade Smith",
+    course:"ME 126 — Acoustics, Tufts",
+    timeline:"",
+    tools:["MATLAB","Dayton iMM-6 microphone","FFT / PSD analysis"],
+    skills:["Noise control","Acoustic measurement","Signal processing","Experimental design"]
+  },
+  metrics:[
+    {v:"−9.0 dBA", l:"Combined barrier at 1 m"},
+    {v:"−4.3 dBA", l:"HDPE plastic barrier alone at 1 m"},
+    {v:"−3.0 dBA", l:"Foam barrier alone at 1 m"},
+    {v:"~82 dB", l:"Baseline level of one cordless drill"}
+  ],
+  sections:{
+    overview:`<p>According to the CDC, about half of construction workers have been exposed to hazardous noise, and many report hearing difficulty or tinnitus. This project measured how much a simple cover could reduce the noise of a cordless drill, and compared absorptive and dense barrier materials.</p>`,
+    challenge:`<p>We had to design barriers that could plausibly attach to a handheld tool and measure their effect with ordinary equipment. Two mechanisms were in play. <strong>Foam</strong> absorbs sound by trapping it in open cells, where friction turns it into heat. <strong>Dense materials</strong> such as HDPE plastic block and reflect sound by mass, the same idea as highway sound walls. Before testing, we estimated each barrier's effectiveness from theory.</p>`,
+    process:`<p>In a quiet carpeted room, we recorded the drill uncovered and then under each barrier (foam, an HDPE plastic shell, and both combined) with a Dayton iMM-6 measurement microphone at marked distances. The closest positions turned out to be too close, so we kept 0.75 m and 1.0 m. One MATLAB script processed every recording the same way: it isolated a 2-second window (48 kHz, 96,000 samples, 0.5 Hz resolution), removed the mean, and computed the FFT and power spectral density.</p>
+      ${figs("one", fig("drill-s6.jpg","Test setup: uncovered drill, foam barrier, and HDPE barrier"))}
+      ${figs("one", fig("drill-s8.jpg","Uncovered drill: time signal and power spectral density"))}`,
+    results:`<p>The uncovered drill's energy peaked at 503 Hz and around 11.6 kHz, with most of it between 3 and 9 kHz, within the range where human hearing is most sensitive. Each barrier pushed the bulk of the energy lower: to 600 Hz–2.6 kHz for foam and 300 Hz–1.2 kHz for plastic.</p>
+      <div class="tablewrap"><table class="data"><thead><tr><th>Barrier</th><th>Reduction at 0.75 m</th><th>Reduction at 1.0 m</th></tr></thead><tbody>
+      <tr><td>Foam</td><td>2.0 dBA</td><td>2.98 dBA</td></tr>
+      <tr><td>HDPE plastic</td><td>3.93 dBA</td><td>4.29 dBA</td></tr>
+      <tr><td>Combined</td><td>8.19 dBA</td><td>9.02 dBA</td></tr></tbody></table></div>
+      ${figs("one", fig("drill-psd.jpg","Power spectral densities for every configuration"))}
+      <div class="callout">At 1 m, the combined barrier's reduction (9.02 dBA) was larger than the foam and HDPE reductions added together (7.27 dBA), which suggests multi-layer, composite-wall style barriers are worth further study. The results matched both our calculations and earlier published work on tool noise.</div>`,
+    reflection:`<p>Next steps: measure in an anechoic chamber with a better microphone, trigger the drill remotely for more consistent runs, and shrink the barrier into something ergonomic enough to actually use. Multi-material barriers are the most promising direction.</p>`
+  },
+  links:[]
+},
+{
+  id:"human-body",
+  title:"Gait Inverse Dynamics: The Human Body Project",
+  kicker:"Mechanics II · Biomechanics",
+  category:"Mechanics & Materials",
+  summary:"Inverse-dynamics analysis of the leg during walking, using motion-capture and force-plate data to compute ankle, knee, and hip reaction forces and torques through the stance phase.",
+  cover:"hbp-ankle.jpg",
+  coverFit:"contain",
+  glance:{
+    role:"",
+    team:"Charles Krebs, Ryder Want",
+    course:"Mechanics II, Tufts",
+    timeline:"",
+    tools:["MATLAB","Motion capture data","Force plate data"],
+    skills:["Inverse dynamics","Free-body analysis","Rigid-body modeling","Data analysis"]
+  },
+  metrics:[
+    {v:"3", l:"Linked rigid segments: foot, shank, thigh"},
+    {v:"79", l:"Time steps over the 0.79 s stance phase (100 Hz)"},
+    {v:"≈ −92 N·m", l:"Peak ankle torque at push-off"},
+    {v:"≈ +32 N·m", l:"Peak hip extensor torque in terminal stance"}
+  ],
+  sections:{
+    overview:`<p>Knowing how hard each joint works during walking helps engineers and clinicians design better rehabilitation and supportive devices. We built an inverse-dynamics model that takes measured motion and ground forces and works backward to find the forces and torques inside the ankle, knee, and hip, and when each one peaks.</p>`,
+    challenge:`<p>The input was raw lab data: ground reaction forces, center of pressure, segment positions, linear and angular accelerations, and joint locations, sampled at 100 Hz over a 0.79 s stance phase. The goal was to turn those numbers into a time history of joint loads and then interpret what the body is doing at each peak.</p>`,
+    process:`<p>We modeled the leg as three rigid links (foot, shank, and thigh) connected by frictionless pin joints. For each segment we drew a free-body diagram and applied Newton–Euler equations of motion (ΣF<sub>x</sub> = m·a<sub>x</sub>, ΣF<sub>z</sub> = m·a<sub>z</sub>, ΣM<sub>G</sub> = I<sub>G</sub>·α) using standard segment masses and inertias. A MATLAB loop solved the system at every time step, from the ground up: ankle first, then knee, then hip.</p>`,
+    results:`${figs("one", fig("hbp-ankle.jpg","Ankle reaction forces and torque through stance"))}
+      ${figs("", fig("hbp-knee.jpg","Knee reaction forces and torque"), fig("hbp-hip.jpg","Hip reaction forces and torque"))}
+      <ul><li><strong>Ankle:</strong> the large negative torque peak (about −92 N·m) in terminal stance is the calf muscles driving push-off. It acts to resist the forward rotation caused by the ground force as the heel lifts.</li>
+      <li><strong>Hip:</strong> the positive peak (about +32 N·m) late in stance is extensor torque, mainly from the gluteus maximus, keeping the trunk upright and slowing the leg.</li>
+      <li><strong>Knee:</strong> a flexor moment near heel strike, where muscles keep the knee from buckling, is followed by an extensor moment near toe-off that helps propel the body forward.</li>
+      <li>The ankle's peak torque is roughly three times the hip's. Push-off demands a short, intense effort, while the hip provides steadier postural support.</li></ul>`,
+    reflection:`<p>Results depend on the model's simplifications (rigid segments, frictionless joints), estimated segment properties, and the accuracy of the force-plate data. Even so, the timing of the joint moment peaks is consistent with the expected muscle activity during normal walking.</p>`
+  },
+  links:[]
+},
+{
+  id:"carbon-plate",
+  title:"Carbon Plate Analysis: Running Shoe Energy Return",
+  kicker:"Materials & Manufacturing I",
+  category:"Mechanics & Materials",
+  summary:"Extraction and compression testing of the carbon plate from a Nike Vaporfly 2, followed by FEA of a modeled plate and fabrication and testing of a 3D-printed carbon fiber plate.",
+  cover:"cp-shoe.jpg",
+  glance:{
+    role:"",
+    team:"Charlie Krebs, Quinn Hampson, Ryder Want, Harris Gulbransen, Meba Henok, Ryan Regan",
+    course:"ME 10 — Materials & Manufacturing I, Tufts",
+    timeline:"",
+    tools:["Instron 5800R","SolidWorks","SolidWorks Simulation (FEA)","Markforged 3D printer"],
+    skills:["Mechanical testing","Data analysis","CAD modeling","Composite fabrication"]
+  },
+  metrics:[
+    {v:"~72%", l:"Measured energy return of the Nike carbon plate"},
+    {v:"10 mm", l:"Maximum test displacement on the Instron (5 kN load cell)"},
+    {v:"16 h", l:"Print time for the Markforged carbon fiber plate"}
+  ],
+  sections:{
+    overview:`<p>Carbon plates in high-performance running shoes are intended to improve energy return. This project examined the mechanical behavior of these plates in three parts: testing a plate taken from a production shoe, modeling and simulating a comparable plate in SolidWorks, and fabricating and testing a carbon fiber plate on a Markforged 3D printer.</p>
+      ${figs("", fig("cp-shoe.jpg","Deconstructing a Nike Vaporfly 2"), fig("cp-plate.jpg","Extracted carbon plate, with the removed foam"))}`,
+    challenge:`<p>Separating the plate from the shoe was difficult because of the adhesive holding the foam in place, and the plate's curved shape made it hard to mount in the Instron. The plate was eventually mounted vertically, clamped at the top and held by friction at the bottom. Several early trials slipped during compression before a trial with little to no slipping was obtained.</p>`,
+    process:`<h3>Part 1: Testing the production plate</h3>
+      <p>The plate was compressed on an Instron with a 5 kN load cell to a maximum displacement of 10 mm over 300 seconds. Energy return was calculated as the ratio of work recovered during unloading to work input during loading, using the area under the force–displacement curve. Because the data were discrete points, each area was computed with a trapezoidal Riemann sum.</p>
+      <div class="tablewrap"><table class="data"><thead><tr><th>Loading work (J)</th><th>Unloading work (J)</th><th>Energy return</th></tr></thead><tbody>
+      <tr><td>0.008866</td><td>0.006352</td><td>71.6%</td></tr></tbody></table></div>
+      <h3>Part 2: CAD and FEA</h3>
+      <p>The plate was modeled in SolidWorks by sketching its horizontal and vertical profiles, extruding both, and intersecting the result. SolidWorks has no complete carbon fiber material definition, so properties were taken from published data (E = 70 GPa, ν = 0.3, ρ = 1600 kg/m³, tensile strength 1.5 GPa). Yield strength was set equal to tensile strength, since carbon fiber does not deform plastically before failure. The plate was fixed at the toe and loaded with 1.2 N at the heel.</p>
+      ${figs("", fig("cp-cad.jpg","CAD model built from intersecting extruded profiles"), fig("cp-fea.jpg","FEA setup: fixed at the toe, loaded at the heel"))}
+      <h3>Part 3: Fabricating a printed plate</h3>
+      <p>A plate was printed in Markforged carbon fiber filament (a 16-hour print with a triangular infill pattern) and tested on the Instron 5800R at the same rate as the Nike plate: 1 mm of displacement every 2 minutes.</p>
+      ${figs("", fig("cp-print-setup.jpg","Preparing the print in Markforged's Eiger software"), fig("cp-printed.jpg","Printed carbon fiber plate"))}`,
+    results:`<ul><li><strong>Production plate:</strong> the measured energy return was about 72%.</li>
+      <li><strong>FEA:</strong> the simulated deflection (0.043 mm average, 0.069 mm maximum) was much lower than measured. The likely causes are that the displacement probe followed the plate's curved edge, and that the plate was fixed in the simulation but not in the physical test.</li>
+      <li><strong>Printed plate:</strong> the peak force was 1.4 N and the peak stress was 0.143 MPa, both at 10 mm. The printer could only lay fiber in one direction, so the layer boundaries ran across the width of the plate. This made it flexible along the heel-to-toe direction, which is the direction that needs to be stiff. The plate was also too thin to carry significant load, and some slipping occurred during testing.</li></ul>
+      ${figs("", fig("cp-stress.jpg","Printed plate: compressive stress vs. displacement"), fig("cp-instron.jpg","Testing on the Instron 5800R"))}`,
+    reflection:`<p>The project gave the team hands-on experience with Instron compression testing, the Markforged printing workflow, and modeling complex curved geometry in CAD. A future printed plate should use a printer that can lay fiber in multiple directions, producing a woven layup closer to the structure of a production plate.</p>`
+  },
+  links:[]
+}
+];
+
+const ORDER=["banjo","room-acoustics","robot","pcbs","design-eval","drill-noise","pin-and-pull","multi-tool","carbon-plate","human-body"];
+PROJECTS.sort((a,b)=>ORDER.indexOf(a.id)-ORDER.indexOf(b.id));
+
+const EXPERIENCE = [
+  {role:"Student Researcher", org:"Idea Lab, Tufts University", when:"Sep 2025 – Present", pts:[
+    "Lead sound integration for a wearable lidar-based navigation device that helps visually impaired users perceive their surroundings through audio",
+    "Design an audio feedback system that conveys obstacle distance and direction through pitch, timbre, and beep rate",
+    "Write Python software that turns stacked lidar scan planes into a map of the user's surroundings and real-time audio cues"]},
+  {role:"Teaching Fellow", org:"Tufts Center for Engineering Education & Outreach", when:"Jan 2026 – Aug 2026", pts:[
+    "Developed five weeks of music engineering curriculum covering transducers, electronic and acoustic instruments, architectural acoustics, and human hearing",
+    "Taught a two-week program for ~35 high school students and a one-week program for ~60 middle school students"]},
+  {role:"Assembler", org:"Manufacturing Solutions Inc., Morrisville, VT", when:"Jun 2024 – Sep 2024", pts:[
+    "Assembled products to specification from engineering drawings and work instructions",
+    "Saw first-hand how part design drives assembly time and precision (design for manufacturability)"]},
+  {role:"Research Assistant", org:"NEK Biosciences, Barton, VT", when:"Jun 2024 – Sep 2024", pts:[
+    "Researched the prevalence and economic impact of pressure ulcers in dairy cattle to size the market for a new product"]},
+  {role:"Design & Fabrication Intern", org:"Lost Nation R&D, Albany, VT", when:"Jun 2022 – Sep 2022", pts:[
+    "Manufactured biathlon rifle stocks, straps, and mounting hardware sold to national teams and athletes worldwide",
+    "Ran small-batch production on a lathe, laser cutter, and power tools; assembled and shipped finished rifles"]},
+  {role:"Activities", org:"Tufts Varsity Cross Country & Track (NCAA D-III) · Applejam live sound · WMFO Radio DJ · Engineers Without Borders", when:"2023 – Present", pts:[]}
+];
+
+const SKILLS = [
+  ["CAD & Simulation","SolidWorks, Onshape, COMSOL Multiphysics, SketchUp"],
+  ["Acoustics & Audio","CATT-Acoustic, Room EQ Wizard, Max/MSP, Reaper, Audacity"],
+  ["Programming & Analysis","Python, MATLAB, C++, LabVIEW"],
+  ["Electronics","KiCad, Arduino / Raspberry Pi, lidar integration, soldering, oscilloscope"],
+  ["Fabrication","Woodworking, laser cutting, 3D printing, lathe, drill press, power saws"],
+  ["Design Methods","User-centered design, usability testing, product decomposition, requirements"]
+];
+
+const AURAL = {
+  sources:{speech:{label:"Speech", note:"Podium position"}, banjo:{label:"Banjo", note:"Center-stage position"}, drums:{label:"Drums", note:"Center-stage position"}},
+  versions:{v1:"V1 · Room as built", v2:"V2 · 3\" fiberglass panels (speech)", v3:"V3 · Angled walls + reflective panels (music)"},
+  file:(s,v)=>({speech:`src2speech${v}`, banjo:`src1banjo${v}`, drums:`drums${v}`})[s]
+};
+
+/* ---------------- rendering ---------------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s);
+const SECTION_LABELS = {overview:"Overview", challenge:"The challenge", process:"Process", results:"Results", reflection:"Reflection"};
+const GLANCE_LABELS = {role:"My role", team:"Team", course:"Course", timeline:"Timeline", tools:"Tools", skills:"Skills"};
+
+let activeFilter = "All";
+function renderCards(){
+  const cats = ["All", ...new Set(PROJECTS.map(p=>p.category))];
+  $("#filters").innerHTML = cats.map(c=>`<button class="${c===activeFilter?'on':''}" data-f="${c}">${c}</button>`).join("");
+  const list = PROJECTS.filter(p=>activeFilter==="All"||p.category===activeFilter);
+  $("#cards").innerHTML = list.map(p=>{
+    const tags = [...(p.glance.tools||[])].slice(0,3).map(t=>`<span class="tag">${t}</span>`).join("");
+    const thumb = p.cover
+      ? `<div class="thumb ${p.coverFit==='contain'?'contain':''}"><img loading="lazy" src="img/${p.cover}" alt=""></div>`
+      : `<div class="thumb" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ebe6dc,#ddd6c9)"><span class="mono" style="color:var(--ink-3)">Write-up coming soon</span></div>`;
+    return `<button class="card ${p.featured&&activeFilter==='All'?'feature':''} fade" data-p="${p.id}">${thumb}
+      <div class="info"><span class="kicker mono">${p.kicker}</span><h3>${p.title}</h3><p>${p.summary}</p><div class="tags">${tags}</div><span class="more">View project</span></div></button>`;
+  }).join("");
+}
+
+function renderXP(){
+  $("#xp").innerHTML = EXPERIENCE.map(x=>`<div class="xp-item"><div><h4>${x.role}</h4><div class="org">${x.org}</div></div><div class="when">${x.when}</div>${x.pts.length?`<ul>${x.pts.map(p=>`<li>${p}</li>`).join("")}</ul>`:""}</div>`).join("");
+  $("#skillgrid").innerHTML = SKILLS.map(([h,p])=>`<div class="skill"><h5>${h}</h5><p>${p}</p></div>`).join("");
+}
+
+function renderProject(id){
+  const i = PROJECTS.findIndex(p=>p.id===id); const p = PROJECTS[i];
+  if(!p) return false;
+  const g = p.glance||{};
+  const glance = Object.keys(GLANCE_LABELS).map(k=>{
+    const v = g[k]; const empty = !v || (Array.isArray(v)&&!v.length);
+    if(empty) return `<div class="slot"><dt>${GLANCE_LABELS[k]}</dt><dd>Add ${GLANCE_LABELS[k].toLowerCase()}</dd></div>`;
+    const val = Array.isArray(v) ? `<div class="tags">${v.map(t=>`<span class="tag">${t}</span>`).join("")}</div>` : v;
+    return `<div><dt>${GLANCE_LABELS[k]}</dt><dd>${val}</dd></div>`;
+  }).join("");
+  const secKeys = Object.keys(SECTION_LABELS);
+  const filled = secKeys.filter(k=>p.sections[k]);
+  const toc = filled.map(k=>`<button data-sec="${k}">${SECTION_LABELS[k]}</button>`).join("");
+  const links = (p.links||[]).map((l,j)=>`<a class="btn ${j?'ghost':''}" href="${l.href}" target="_blank" rel="noopener">${l.label} ↗</a>`).join("")
+    || `<div class="slot">Add links: report, slides, video, code</div>`;
+  const metrics = p.metrics && p.metrics.length
+    ? `<div class="metrics">${p.metrics.map(m=>`<div class="metric"><div class="v">${m.v}</div><div class="l">${m.l}</div></div>`).join("")}</div>`
+    : `<div class="slot">Add key metrics: 2–4 headline numbers (e.g. weight saved, accuracy, test results)</div>`;
+  let n = 0;
+  const sections = secKeys.map(k=>{
+    if(!p.sections[k]) return `<div class="slot">Add section: <strong>${SECTION_LABELS[k]}</strong></div>`;
+    n++;
+    return `<section class="p-section" id="sec-${k}"><span class="mono">${String(n).padStart(2,"0")}</span><h2>${SECTION_LABELS[k]}</h2><div class="prose">${p.sections[k]}</div></section>`;
+  }).join("");
+  const refs = p.references ? `<section class="p-section"><span class="mono">Reference</span><div class="prose"><p style="font-size:15px">${p.references}</p></div></section>` : "";
+  const cover = p.cover
+    ? `<div class="wrap"><div class="p-cover ${p.coverFit==='contain'?'contain':''}"><img src="img/${p.cover}" alt="${p.title}"></div></div>`
+    : `<div class="wrap"><div class="slot">Add a cover image</div></div>`;
+  const prev = PROJECTS[(i-1+PROJECTS.length)%PROJECTS.length], next = PROJECTS[(i+1)%PROJECTS.length];
+
+  $("#project").innerHTML = `<div class="fade">
+    <header class="p-hero wrap"><button class="back" data-home>← All projects</button>
+      <div class="kicker mono">${p.kicker}</div><h1>${p.title}</h1><p class="summary">${p.summary}</p></header>
+    ${cover}
+    <div class="wrap p-layout">
+      <aside class="glance"><h6>Project at a glance</h6><dl>${glance}</dl>
+        ${toc?`<div class="toc">${toc}</div>`:""}<div class="links">${links}</div></aside>
+      <article>${metrics}${sections}${refs}
+        <div class="next-proj"><button data-p="${prev.id}"><span class="mono">← Previous</span><span class="n">${prev.title}</span></button>
+        <button data-p="${next.id}" style="text-align:right"><span class="mono">Next →</span><span class="n">${next.title}</span></button></div>
+      </article>
+    </div></div>`;
+  if(id==="room-acoustics") renderAuralizer();
+  return true;
+}
+
+function renderAuralizer(){
+  const el = $("#auralizer"); if(!el) return;
+  let s="speech", v="v1";
+  const draw = (autoplay)=>{
+    const wasTime = 0;
+    el.innerHTML = `<div class="row"><span class="lbl">Source</span><div class="seg">${Object.entries(AURAL.sources).map(([k,o])=>`<button data-s="${k}" class="${k===s?'on':''}">${o.label}</button>`).join("")}</div></div>
+      <div class="row"><span class="lbl">Room</span><div class="seg">${Object.keys(AURAL.versions).map(k=>`<button data-v="${k}" class="${k===v?'on':''}">${k.toUpperCase()}</button>`).join("")}</div></div>
+      <p class="desc">${AURAL.versions[v]} — ${AURAL.sources[s].label.toLowerCase()}, ${AURAL.sources[s].note.toLowerCase()}</p>
+      <audio controls preload="none" src="audio/${AURAL.file(s,v)}.mp3"></audio>`;
+    if(autoplay){ const a=el.querySelector("audio"); a.play().catch(()=>{}); }
+  };
+  el.addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b) return;
+    const playing = !el.querySelector("audio").paused;
+    if(b.dataset.s) s=b.dataset.s; if(b.dataset.v) v=b.dataset.v;
+    draw(playing);
+  });
+  draw(false);
+}
+
+/* ---------------- routing (hash = project id) ---------------- */
+function route(){
+  const id = location.hash.replace("#","");
+  if(id && renderProject(id)){
+    document.body.classList.add("viewing-project"); window.scrollTo(0,0);
+    document.title = PROJECTS.find(p=>p.id===id).title + " — Charles Krebs";
+  } else {
+    document.body.classList.remove("viewing-project");
+    document.title = "Charles Krebs — Mechanical Engineering Portfolio";
+  }
+}
+function goHome(section){
+  if(location.hash){ history.pushState(null,"",location.pathname); route(); }
+  if(section){ requestAnimationFrame(()=>{ const t = section==="top"?document.body:document.getElementById(section); t && t.scrollIntoView({behavior:"smooth"}); }); }
+}
+
+document.addEventListener("click",e=>{
+  const t = e.target.closest("[data-p],[data-go],[data-home],[data-f],[data-sec],figure");
+  if(!t) return;
+  if(t.dataset.p){ location.hash = t.dataset.p; }
+  else if(t.dataset.go){ goHome(t.dataset.go); }
+  else if(t.hasAttribute("data-home")){ goHome("work"); }
+  else if(t.dataset.f){ activeFilter=t.dataset.f; renderCards(); }
+  else if(t.dataset.sec){ document.getElementById("sec-"+t.dataset.sec).scrollIntoView({behavior:"smooth"}); }
+  else if(t.tagName==="FIGURE"){ const lb=$("#lightbox"); lb.querySelector("img").src=t.querySelector("img").src; lb.querySelector("p").textContent=t.dataset.cap||""; lb.classList.add("open"); }
+});
+$("#lightbox").addEventListener("click",()=>$("#lightbox").classList.remove("open"));
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") $("#lightbox").classList.remove("open"); });
+try{ localStorage.removeItem("outline"); }catch(_){}
+window.addEventListener("hashchange",route);
+
+/* decaying waveform in the hero */
+(function(){
+  const W=1200,H=90,mid=45; let d="M0 "+mid, env="M0 "+(mid-40);
+  for(let x=0;x<=W;x+=2){ const t=x/W, a=40*Math.exp(-4.2*t); d+=` L${x} ${(mid - a*Math.sin(x*0.09)*Math.cos(x*0.013)).toFixed(1)}`; }
+  for(let x=0;x<=W;x+=10){ env+=` L${x} ${(mid-40*Math.exp(-4.2*x/W)).toFixed(1)}`; }
+  $("#wavepath").setAttribute("d",d); $("#envpath").setAttribute("d",env);
+})();
+
+renderCards(); renderXP(); route();
+</script>
+</body>
+</html>
