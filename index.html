@@ -43,8 +43,8 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;heig
 .hero-grid{display:grid;grid-template-columns:1fr 340px;gap:64px;align-items:center}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:200px;order:-1}}
 .hero h1.name{font-size:clamp(46px,6.5vw,76px);max-width:none}
-.portrait{aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#e9e3d7,#d8cfbf);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
-.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait{border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#e9e3d7,#d8cfbf);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.portrait img{width:100%;height:auto;display:block}
 .monogram{font-family:var(--serif);font-size:88px;color:#fffdf9;letter-spacing:-.02em;opacity:.9}
 .hero p.lede+p.lede{margin-top:16px}
 .hero p.lede{margin-top:28px;font-size:19px;color:var(--ink-2);max-width:60ch;line-height:1.55}
